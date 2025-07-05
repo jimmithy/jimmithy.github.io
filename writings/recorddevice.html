@@ -1,0 +1,254 @@
+<html lang="en">
+
+<head>
+    <title>
+        James O'Brien - Jira & Bitrise: Comments on New Builds
+    </title>
+    <link rel="canonical" href="http://www.jamesob.com/apps/brick.html" />
+    <meta name="description" content="Jira & Bitrise: Comments on New Builds by James O'Brien" />
+    <link rel="icon" type="image/png" sizes="32x32" href="../fav/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="../fav/favicon-16x16.png">
+    <link rel="manifest" href="../fav/site.webmanifest">
+    <link rel="stylesheet" type="text/css" href="../style.css" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto&display=swap">
+    <meta name="viewport" content="width=460" />
+    <meta charset="utf-8" />
+    <meta name="theme-color" content="#3e98ba">
+    <script>
+        (function (i, s, o, g, r, a, m) {
+            i['GoogleAnalyticsObject'] = r;
+            i[r] = i[r] || function () {
+                (i[r].q = i[r].q || []).push(arguments)
+            }, i[r].l = 1 * new Date();
+            a = s.createElement(o),
+                m = s.getElementsByTagName(o)[0];
+            a.async = 1;
+            a.src = g;
+            m.parentNode.insertBefore(a, m)
+        })(window, document, 'script', 'https://www.google-analytics.com/analytics.js', 'ga');
+
+        ga('create', 'UA-70691048-2', 'auto');
+        ga('send', 'pageview');
+    </script>
+</head>
+
+<body>
+    <section id="header">
+        <div id="headerCenter">
+            <a href="../index.html">
+                <img id="avatar" src="../img/avatar.png" alt="Home Page" />
+            </a>
+            <a href="../index.html" id="title">James O'Brien</a>
+            <ul class="navigation">
+                <li><a href="../index.html">Home</a></li>
+                <li><a href="../apps/index.html">Applications</a></li>
+                <li><a href="../writings.html">Writings</a></li>
+            </ul>
+            <div class="social">
+                <a href="http://twitter.com/jimmithy" target="_blank" title="twitter">
+                    <svg class="icons" width="21" height="21" viewBox="0 0 21 21">
+                        <path
+                            d="M18.502 4.435a6.892 6.892 0 0 1-2.18.872 3.45 3.45 0 0 0-2.552-1.12 3.488 3.488 0 0 0-3.488 3.486c0 .276.03.543.063.81a9.912 9.912 0 0 1-7.162-3.674c-.3.53-.47 1.13-.498 1.74.027 1.23.642 2.3 1.557 2.92a3.357 3.357 0 0 1-1.555-.44.15.15 0 0 0 0 .06c-.004 1.67 1.2 3.08 2.8 3.42-.3.06-.606.1-.934.12-.216-.02-.435-.04-.623-.06.42 1.37 1.707 2.37 3.24 2.43a7.335 7.335 0 0 1-4.36 1.49L2 16.44A9.96 9.96 0 0 0 7.355 18c6.407 0 9.915-5.32 9.9-9.9.015-.18.01-.33 0-.5A6.546 6.546 0 0 0 19 5.79a6.185 6.185 0 0 1-1.992.56 3.325 3.325 0 0 0 1.494-1.93">
+                        </path>
+                    </svg>
+                </a>
+                <a href="https://www.linkedin.com/in/jimmithy/" target="_blank" title="linkedin">
+                    <svg class="icons" width="20" height="20" viewBox="0 0 1000 1000">
+                        <path
+                            d="M892,10H108c-53.9,0-98,44.1-98,98v784c0,53.9,44.1,98,98,98h784c53.9,0,98-44.1,98-98V108C990,54.1,945.9,10,892,10z M304,843H157V402h147V843z M230.5,318.7c-49,0-88.2-39.2-88.2-88.2c0-49,39.2-88.2,88.2-88.2c49,0,88.2,39.2,88.2,88.2C318.7,279.5,279.5,318.7,230.5,318.7z M843,843H696V583.3c0-39.2-34.3-73.5-73.5-73.5c-39.2,0-73.5,34.3-73.5,73.5V843H402V402h147v58.8c24.5-39.2,78.4-68.6,122.5-68.6c93.1,0,171.5,78.4,171.5,171.5V843z">
+                        </path>
+                    </svg>
+                </a>
+            </div>
+        </div>
+    </section>
+    <section id="content">
+        <div class="fullitem">
+            <section data-field="body" class="e-content">
+                <section name="4f7d" class="section section--body section--first">
+                    <hr>
+                    <div class="section-content">
+                        <div class="section-inner sectionLayout--insetColumn">
+                            <h3 name="8a02" id="8a02" class="graf graf--h3 graf--leading graf--title">MediaProjection:
+                                How to record your Android&nbsp;device</h3>
+                            <p name="10bb" id="10bb" class="graf graf--p graf-after--h3">For a recent project I tasked
+                                myself with finding a way to let the user record what they were seeing on the device.
+                                The nuts and bolts of the solution can be identified with two classes:</p>
+                            <ul class="postList">
+                                <li name="549e" id="549e" class="graf graf--li graf-after--p"><a
+                                        href="https://developer.android.com/reference/android/media/projection/MediaProjection.html"
+                                        data-href="https://developer.android.com/reference/android/media/projection/MediaProjection.html"
+                                        class="markup--anchor markup--li-anchor" rel="noopener"
+                                        target="_blank">MediaProjection</a> was introduced in Lollipop and gives us the
+                                    ability to capture what’s on the screen.</li>
+                                <li name="db64" id="db64" class="graf graf--li graf-after--li"><a
+                                        href="https://developer.android.com/reference/android/media/MediaRecorder.html"
+                                        data-href="https://developer.android.com/reference/android/media/MediaRecorder.html"
+                                        class="markup--anchor markup--li-anchor" rel="noopener"
+                                        target="_blank">MediaRecorder</a> is pretty self explanatory, this class
+                                    simplifies recording audio and video.</li>
+                            </ul>
+                        </div>
+                        <div class="section-inner sectionLayout--outsetColumn">
+                            <figure name="9d18" id="9d18"
+                                class="graf graf--figure graf--layoutOutsetCenter graf-after--li graf--trailing"><img
+                                    class="graf-image" data-image-id="1*gj94gQoq4wpGkbCB0DRVUw.png" data-width="1302"
+                                    data-height="294" data-is-featured="true"
+                                    src="https://cdn-images-1.medium.com/max/1200/1*gj94gQoq4wpGkbCB0DRVUw.png">
+                            </figure>
+                        </div>
+                    </div>
+                </section>
+                <section name="6009" class="section section--body">
+                    <hr>
+                    <div class="section-content">
+                        <div class="section-inner sectionLayout--insetColumn">
+                            <h4 name="fe60" id="fe60" class="graf graf--h4 graf--leading">Requirements</h4>
+                            <ul class="postList">
+                                <li name="ff2f" id="ff2f" class="graf graf--li graf-after--h4">Android SDK v21</li>
+                                <li name="55c7" id="55c7" class="graf graf--li graf-after--li"><a
+                                        href="https://developer.android.com/reference/android/Manifest.permission.html#WRITE_EXTERNAL_STORAGE"
+                                        data-href="https://developer.android.com/reference/android/Manifest.permission.html#WRITE_EXTERNAL_STORAGE"
+                                        class="markup--anchor markup--li-anchor" rel="noopener"
+                                        target="_blank">WRITE_EXTERNAL_STORAGE</a> and <a
+                                        href="https://developer.android.com/reference/android/Manifest.permission.html#RECORD_AUDIO"
+                                        data-href="https://developer.android.com/reference/android/Manifest.permission.html#RECORD_AUDIO"
+                                        class="markup--anchor markup--li-anchor" rel="noopener"
+                                        target="_blank">RECORD_AUDIO</a> permissions</li>
+                            </ul>
+                            <h4 name="fb5c" id="fb5c" class="graf graf--h4 graf-after--li">Accepting</h4>
+                            <p name="7ddc" id="7ddc" class="graf graf--p graf-after--h4">The first step is to request
+                                permission to capture the screen.</p>
+                            <pre name="39fe" id="39fe"
+                                class="graf graf--pre graf-after--p">val manager = getSystemService(Context.MEDIA_PROJECTION_SERVICE) as MediaProjectionManager</pre>
+                            <pre name="9d76" id="9d76"
+                                class="graf graf--pre graf-after--pre">startActivityForResult(manager.createScreenCaptureIntent(), REQUEST_MEDIA_PROJECTION)</pre>
+                            <figure name="a644" id="a644" class="graf graf--figure graf-after--pre"><img
+                                    class="graf-image" data-image-id="1*0bzXcoHL7JmB--z-oU8UYA.png" data-width="1080"
+                                    data-height="650"
+                                    src="https://cdn-images-1.medium.com/max/800/1*0bzXcoHL7JmB--z-oU8UYA.png"></figure>
+                            <p name="92ab" id="92ab" class="graf graf--p graf-after--figure">Launching this intent will
+                                show a confirmation dialog to the user which allows them to authorise the screen
+                                capturing.</p>
+                            <p name="d8b4" id="d8b4" class="graf graf--p graf-after--p">Once they accept, you can use
+                                the result code and data intent returned in onActivityResult, we are able to create a <a
+                                    href="https://developer.android.com/reference/android/media/projection/MediaProjection.html"
+                                    data-href="https://developer.android.com/reference/android/media/projection/MediaProjection.html"
+                                    class="markup--anchor markup--p-anchor" rel="noopener"
+                                    target="_blank">MediaProjection</a>.</p>
+                            <pre name="097d" id="097d"
+                                class="graf graf--pre graf-after--p">projection = manager.getMediaProjection(resultCode, data) as MediaProjection</pre>
+                            <h4 name="2bf9" id="2bf9" class="graf graf--h4 graf-after--pre">Recording</h4>
+                            <p name="e89d" id="e89d" class="graf graf--p graf-after--h4">Next we need to define our <a
+                                    href="https://developer.android.com/reference/android/media/MediaRecorder.html"
+                                    data-href="https://developer.android.com/reference/android/media/MediaRecorder.html"
+                                    class="markup--anchor markup--p-anchor" rel="noopener"
+                                    target="_blank">MediaRecorder</a>. I’m not too fussed about the specific details so
+                                I used the predefined <a
+                                    href="https://developer.android.com/reference/android/media/CamcorderProfile.html#QUALITY_HIGH"
+                                    data-href="https://developer.android.com/reference/android/media/CamcorderProfile.html#QUALITY_HIGH"
+                                    class="markup--anchor markup--p-anchor" rel="noopener" target="_blank">high
+                                    quality</a> <a
+                                    href="https://developer.android.com/reference/android/media/CamcorderProfile.html"
+                                    data-href="https://developer.android.com/reference/android/media/CamcorderProfile.html"
+                                    class="markup--anchor markup--p-anchor" rel="noopener"
+                                    target="_blank">CamcorderProfile</a> but you can create your own and specify
+                                everything from <a
+                                    href="https://developer.android.com/reference/android/media/CamcorderProfile.html#fileFormat"
+                                    data-href="https://developer.android.com/reference/android/media/CamcorderProfile.html#fileFormat"
+                                    class="markup--anchor markup--p-anchor" rel="noopener" target="_blank">output
+                                    format</a> to <a
+                                    href="https://developer.android.com/reference/android/media/CamcorderProfile.html#videoBitRate"
+                                    data-href="https://developer.android.com/reference/android/media/CamcorderProfile.html#videoBitRate"
+                                    class="markup--anchor markup--p-anchor" rel="noopener" target="_blank">bits per
+                                    second</a>. One slightly different thing is that I defined the height and width
+                                using the Window’s <a
+                                    href="https://developer.android.com/reference/android/util/DisplayMetrics.html"
+                                    data-href="https://developer.android.com/reference/android/util/DisplayMetrics.html"
+                                    class="markup--anchor markup--p-anchor" rel="noopener"
+                                    target="_blank">DisplayMetrics</a> so it exactly matched the screen size.</p>
+                            <pre name="8b47" id="8b47"
+                                class="graf graf--pre graf-after--p">mMediaRecorder.setAudioSource(MediaRecorder.AudioSource.<em class="markup--em markup--pre-em">DEFAULT</em>)<br>mMediaRecorder.setVideoSource(MediaRecorder.VideoSource.<em class="markup--em markup--pre-em">SURFACE</em>)<br>val profile: CamcorderProfile = CamcorderProfile.get(CamcorderProfile.<em class="markup--em markup--pre-em">QUALITY_HIGH</em>)<br>profile.videoFrameHeight = metrics.heightPixels<br>profile.videoFrameWidth = metrics.widthPixels<br>mMediaRecorder.setProfile(profile)<br>mMediaRecorder.setOutputFile(filename)<br>mMediaRecorder.prepare()</pre>
+                            <p name="f6c8" id="f6c8" class="graf graf--p graf-after--pre">One gotcha about the
+                                MediaRecorder is that the methods have to be defined in the correct order. For example,
+                                once setting the Camcorder Profile, you can’t change the AudioSource without crashing.
+                                The <a href="https://developer.android.com/reference/android/media/MediaRecorder.html"
+                                    data-href="https://developer.android.com/reference/android/media/MediaRecorder.html"
+                                    class="markup--anchor markup--p-anchor" rel="noopener" target="_blank">javadoc</a>
+                                has more details to the state machine behind this.</p>
+                            <h4 name="967c" id="967c" class="graf graf--h4 graf-after--p">Mirroring</h4>
+                            <p name="f3d5" id="f3d5" class="graf graf--p graf-after--h4">Once we have the MediaRecorder
+                                and MediaProjection, we can create a virtual display that mirrors the projection and
+                                then bind it to the MediaRecorder’s SurfaceView. If you weren’t interested in the
+                                recording aspect of this demo, you could bind to your own SurfaceView.</p>
+                            <pre name="15d1" id="15d1"
+                                class="graf graf--pre graf-after--p">mVirtualDisplay = mMediaProjection!!.createVirtualDisplay(VIRTUAL_DISPLAY_NAME,<br>    metrics.widthPixels, metrics.heightPixels, metrics.densityDpi,<br>    DisplayManager.<em class="markup--em markup--pre-em">VIRTUAL_DISPLAY_FLAG_AUTO_MIRROR</em>,    <br>    mMediaRecorder.<em class="markup--em markup--pre-em">surface</em>, null, null)</pre>
+                            <p name="909d" id="909d" class="graf graf--p graf-after--pre">Now everything is set up, tell
+                                the MediaRecorder to <a
+                                    href="https://developer.android.com/reference/android/media/MediaRecorder.html#start%28%29"
+                                    data-href="https://developer.android.com/reference/android/media/MediaRecorder.html#start()"
+                                    class="markup--anchor markup--p-anchor" rel="noopener" target="_blank">start()</a>
+                                recording and you’ll notice the cast icon appear in your phone’s status bar.</p>
+                            <figure name="f7d4" id="f7d4" class="graf graf--figure graf-after--p"><img
+                                    class="graf-image" data-image-id="1*o4ksbkubrCRD4pR10uGFzA.png" data-width="1080"
+                                    data-height="272"
+                                    src="https://cdn-images-1.medium.com/max/800/1*o4ksbkubrCRD4pR10uGFzA.png"></figure>
+                            <p name="2129" id="2129" class="graf graf--p graf-after--figure">When you’re ready, call <a
+                                    href="https://developer.android.com/reference/android/media/MediaRecorder.html#stop%28%29"
+                                    data-href="https://developer.android.com/reference/android/media/MediaRecorder.html#stop()"
+                                    class="markup--anchor markup--p-anchor" rel="noopener" target="_blank">stop()</a>.
+                                It’s also important to release the MediaProjection and VirtualDisplay too. The recording
+                                will then be saved to the location you define in <a
+                                    href="https://developer.android.com/reference/android/media/MediaRecorder.html#setOutputFile%28java.lang.String%29"
+                                    data-href="https://developer.android.com/reference/android/media/MediaRecorder.html#setOutputFile(java.lang.String)"
+                                    class="markup--anchor markup--p-anchor" rel="noopener"
+                                    target="_blank">setOutputFile</a>.</p>
+                            <pre name="d667" id="d667"
+                                class="graf graf--pre graf-after--p graf--trailing">mMediaRecorder?.stop()<br>mMediaProjection?.stop()<br>mVirtualDisplay?.release()</pre>
+                        </div>
+                    </div>
+                </section>
+                <section name="831b" class="section section--body section--last">
+                    <hr>
+                    <div class="section-content">
+                        <div class="section-inner sectionLayout--insetColumn">
+                            <h4 name="482f" id="482f" class="graf graf--h4 graf--leading">Further Reading</h4>
+                            <div name="e05d" id="e05d" class="graf graf--mixtapeEmbed graf-after--h4"><a
+                                    href="https://developer.android.com/guide/topics/media/mediarecorder.html"
+                                    data-href="https://developer.android.com/guide/topics/media/mediarecorder.html"
+                                    class="markup--anchor markup--mixtapeEmbed-anchor"
+                                    title="https://developer.android.com/guide/topics/media/mediarecorder.html"><strong
+                                        class="markup--strong markup--mixtapeEmbed-strong">MediaRecorder | Android
+                                        Developers</strong><br><em class="markup--em markup--mixtapeEmbed-em">The
+                                        Android multimedia framework includes support for capturing and encoding a
+                                        variety of common audio and video…</em>developer.android.com</a><a
+                                    href="https://developer.android.com/guide/topics/media/mediarecorder.html"
+                                    class="js-mixtapeImage mixtapeImage u-ignoreBlock"
+                                    data-media-id="821fd8c1567aaf6c7dd8ca4b65a21173"
+                                    data-thumbnail-img-id="0*MQCXN6m7-ON6dle4."
+                                    style="background-image: url(https://cdn-images-1.medium.com/fit/c/160/160/0*MQCXN6m7-ON6dle4.);"></a>
+                            </div>
+                            <div name="766d" id="766d"
+                                class="graf graf--mixtapeEmbed graf-after--mixtapeEmbed graf--trailing"><a
+                                    href="https://github.com/googlesamples/android-ScreenCapture"
+                                    data-href="https://github.com/googlesamples/android-ScreenCapture"
+                                    class="markup--anchor markup--mixtapeEmbed-anchor"
+                                    title="https://github.com/googlesamples/android-ScreenCapture"><strong
+                                        class="markup--strong markup--mixtapeEmbed-strong">googlesamples/android-ScreenCapture</strong><br><em
+                                        class="markup--em markup--mixtapeEmbed-em">Contribute to android-ScreenCapture
+                                        development by creating an account on GitHub.</em>github.com</a><a
+                                    href="https://github.com/googlesamples/android-ScreenCapture"
+                                    class="js-mixtapeImage mixtapeImage u-ignoreBlock"
+                                    data-media-id="04e57921b26bf6dfb0fcf01f5bedea87"
+                                    data-thumbnail-img-id="0*zw2qHq4wcFn4l7XO."
+                                    style="background-image: url(https://cdn-images-1.medium.com/fit/c/160/160/0*zw2qHq4wcFn4l7XO.);"></a>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+            </section>
+        </div>
+    </section>
+</body>
+
+</html>
