@@ -1,0 +1,235 @@
+<html lang="en">
+
+<head>
+    <title>How to record your Android device - James O'Brien</title>
+    <link rel="canonical" href="https://medium.com/@jimmithy/recording-your-android-screen-7e0e75aae260" />
+    <meta name="description" content="Using Android's MediaProjection and MediaRecorder to record the screen and save it to disk." />
+    <link rel="icon" type="image/png" sizes="32x32" href="../fav/favicon-32x32.png" />
+    <link rel="icon" type="image/png" sizes="16x16" href="../fav/favicon-16x16.png" />
+    <link rel="manifest" href="../fav/site.webmanifest">
+    <link rel="stylesheet" type="text/css" href="../style.css" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto&display=swap">
+    <meta name="viewport" content="width=460" />
+    <meta charset="utf-8" />
+    <meta name="theme-color" content="#3e98ba" />
+    <script>
+    (function(i, s, o, g, r, a, m) {
+        i['GoogleAnalyticsObject'] = r;
+        i[r] = i[r] || function() {
+            (i[r].q = i[r].q || []).push(arguments)
+        }, i[r].l = 1 * new Date();
+        a = s.createElement(o),
+            m = s.getElementsByTagName(o)[0];
+        a.async = 1;
+        a.src = g;
+        m.parentNode.insertBefore(a, m)
+    })(window, document, 'script', 'https://www.google-analytics.com/analytics.js', 'ga');
+
+    ga('create', 'UA-70691048-2', 'auto');
+    ga('send', 'pageview');
+    </script>
+    <style>
+        .article {
+            max-width: 680px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        .article h1 {
+            font-size: 36px;
+            margin-bottom: 10px;
+            text-transform: none;
+            letter-spacing: 0;
+        }
+        .article-meta {
+            color: #888;
+            font-size: 14px;
+            margin-bottom: 30px;
+        }
+        .article p {
+            font-size: 18px;
+            line-height: 1.7;
+            margin-bottom: 24px;
+            color: #333;
+        }
+        .article h2 {
+            font-size: 28px;
+            margin: 36px 0 16px;
+            text-transform: none;
+            letter-spacing: 0;
+        }
+        .article h3 {
+            font-size: 22px;
+            margin: 30px 0 12px;
+            text-transform: none;
+            letter-spacing: 0;
+        }
+        .article h4 {
+            font-size: 18px;
+            margin: 28px 0 10px;
+            text-transform: none;
+            letter-spacing: 0;
+        }
+        .article ul, .article ol {
+            font-size: 18px;
+            line-height: 1.7;
+            margin-bottom: 24px;
+            padding-left: 28px;
+            color: #333;
+        }
+        .article li {
+            margin-bottom: 8px;
+        }
+        .article pre {
+            background: #f4f4f4;
+            border-left: 3px solid #3e98ba;
+            padding: 16px;
+            overflow-x: auto;
+            font-size: 14px;
+            line-height: 1.5;
+            margin-bottom: 24px;
+            white-space: pre-wrap;
+            word-break: break-word;
+        }
+        .article code {
+            background: #f4f4f4;
+            padding: 2px 5px;
+            font-size: 15px;
+            border-radius: 3px;
+            font-family: monospace;
+        }
+        .article pre code {
+            background: none;
+            padding: 0;
+            font-size: 14px;
+        }
+        .article figure {
+            margin: 0 0 24px;
+        }
+        .article figure img {
+            max-width: 100%;
+            height: auto;
+            display: block;
+            border: 1px solid rgba(0,0,0,.1);
+        }
+        .article figcaption {
+            font-size: 14px;
+            color: #888;
+            margin-top: 8px;
+            text-align: center;
+        }
+        .article .further-reading {
+            margin-top: 40px;
+            padding-top: 20px;
+            border-top: 1px solid #C6E4F3;
+        }
+        .article .further-reading h4 {
+            margin-bottom: 12px;
+        }
+        .article .further-reading ul {
+            font-size: 16px;
+        }
+        .article-source {
+            margin-top: 40px;
+            padding-top: 20px;
+            border-top: 1px solid #C6E4F3;
+            font-size: 14px;
+            color: #888;
+        }
+    </style>
+</head>
+
+<body>
+    <section id="header">
+        <div id="headerCenter">
+            <a href="../index.html"><img id="avatar" src="../img/avatar.png"/></a>
+            <a href="../index.html" id="title">James O'Brien</a>
+            <ul class="navigation">
+                <li><a href="../index.html">Home</a></li>
+                <li><a href="../apps">Applications</a></li>
+                <li><a href="../writings.html">Writings</a></li>
+            </ul>
+            <div class="social">
+                <a href="https://www.linkedin.com/in/jimmithy/" target="_blank" title="linkedin">
+                    <svg class="icons" width="20" height="20" viewBox="0 0 1000 1000">
+                        <path d="M892,10H108c-53.9,0-98,44.1-98,98v784c0,53.9,44.1,98,98,98h784c53.9,0,98-44.1,98-98V108C990,54.1,945.9,10,892,10z M304,843H157V402h147V843z M230.5,318.7c-49,0-88.2-39.2-88.2-88.2c0-49,39.2-88.2,88.2-88.2c49,0,88.2,39.2,88.2,88.2C318.7,279.5,279.5,318.7,230.5,318.7z M843,843H696V583.3c0-39.2-34.3-73.5-73.5-73.5c-39.2,0-73.5,34.3-73.5,73.5V843H402V402h147v58.8c24.5-39.2,78.4-68.6,122.5-68.6c93.1,0,171.5,78.4,171.5,171.5V843z"></path>
+                    </svg>
+                </a>
+            </div>
+        </div>
+    </section>
+    <section id="content">
+        <article class="article">
+            <h1>MediaProjection: How to record your Android device</h1>
+            <p class="article-meta">January 28, 2018</p>
+
+            <figure>
+                <img src="https://cdn-images-1.medium.com/max/1200/1*gj94gQoq4wpGkbCB0DRVUw.png" alt="MediaProjection and MediaRecorder" />
+            </figure>
+
+            <p>For a recent project I tasked myself with finding a way to let the user record what they were seeing on the device. The nuts and bolts of the solution can be identified with two classes:</p>
+            <ul>
+                <li><a href="https://developer.android.com/reference/android/media/projection/MediaProjection.html" target="_blank">MediaProjection</a> was introduced in Lollipop and gives us the ability to capture what's on the screen.</li>
+                <li><a href="https://developer.android.com/reference/android/media/MediaRecorder.html" target="_blank">MediaRecorder</a> is pretty self explanatory, this class simplifies recording audio and video.</li>
+            </ul>
+
+            <h4>Requirements</h4>
+            <ul>
+                <li>Android SDK v21</li>
+                <li><a href="https://developer.android.com/reference/android/Manifest.permission.html#WRITE_EXTERNAL_STORAGE" target="_blank">WRITE_EXTERNAL_STORAGE</a> and <a href="https://developer.android.com/reference/android/Manifest.permission.html#RECORD_AUDIO" target="_blank">RECORD_AUDIO</a> permissions</li>
+            </ul>
+
+            <h4>Accepting</h4>
+            <p>The first step is to request permission to capture the screen.</p>
+            <pre><code>val manager = getSystemService(Context.MEDIA_PROJECTION_SERVICE) as MediaProjectionManager
+
+startActivityForResult(manager.createScreenCaptureIntent(), REQUEST_MEDIA_PROJECTION)</code></pre>
+            <figure>
+                <img src="https://cdn-images-1.medium.com/max/800/1*0bzXcoHL7JmB--z-oU8UYA.png" alt="Screen capture permission dialog" />
+            </figure>
+            <p>Launching this intent will show a confirmation dialog to the user which allows them to authorise the screen capturing.</p>
+            <p>Once they accept, you can use the result code and data intent returned in onActivityResult, we are able to create a <a href="https://developer.android.com/reference/android/media/projection/MediaProjection.html" target="_blank">MediaProjection</a>.</p>
+            <pre><code>projection = manager.getMediaProjection(resultCode, data) as MediaProjection</code></pre>
+
+            <h4>Recording</h4>
+            <p>Next we need to define our <a href="https://developer.android.com/reference/android/media/MediaRecorder.html" target="_blank">MediaRecorder</a>. I'm not too fussed about the specific details so I used the predefined <a href="https://developer.android.com/reference/android/media/CamcorderProfile.html#QUALITY_HIGH" target="_blank">high quality</a> <a href="https://developer.android.com/reference/android/media/CamcorderProfile.html" target="_blank">CamcorderProfile</a> but you can create your own and specify everything from <a href="https://developer.android.com/reference/android/media/CamcorderProfile.html#fileFormat" target="_blank">output format</a> to <a href="https://developer.android.com/reference/android/media/CamcorderProfile.html#videoBitRate" target="_blank">bits per second</a>. One slightly different thing is that I defined the height and width using the Window's <a href="https://developer.android.com/reference/android/util/DisplayMetrics.html" target="_blank">DisplayMetrics</a> so it exactly matched the screen size.</p>
+            <pre><code>mMediaRecorder.setAudioSource(MediaRecorder.AudioSource.DEFAULT)
+mMediaRecorder.setVideoSource(MediaRecorder.VideoSource.SURFACE)
+val profile: CamcorderProfile = CamcorderProfile.get(CamcorderProfile.QUALITY_HIGH)
+profile.videoFrameHeight = metrics.heightPixels
+profile.videoFrameWidth = metrics.widthPixels
+mMediaRecorder.setProfile(profile)
+mMediaRecorder.setOutputFile(filename)
+mMediaRecorder.prepare()</code></pre>
+            <p>One gotcha about the MediaRecorder is that the methods have to be defined in the correct order. For example, once setting the Camcorder Profile, you can't change the AudioSource without crashing. The <a href="https://developer.android.com/reference/android/media/MediaRecorder.html" target="_blank">javadoc</a> has more details to the state machine behind this.</p>
+
+            <h4>Mirroring</h4>
+            <p>Once we have the MediaRecorder and MediaProjection, we can create a virtual display that mirrors the projection and then bind it to the MediaRecorder's SurfaceView. If you weren't interested in the recording aspect of this demo, you could bind to your own SurfaceView.</p>
+            <pre><code>mVirtualDisplay = mMediaProjection!!.createVirtualDisplay(VIRTUAL_DISPLAY_NAME,
+    metrics.widthPixels, metrics.heightPixels, metrics.densityDpi,
+    DisplayManager.VIRTUAL_DISPLAY_FLAG_AUTO_MIRROR,
+    mMediaRecorder.surface, null, null)</code></pre>
+            <p>Now everything is set up, tell the MediaRecorder to <a href="https://developer.android.com/reference/android/media/MediaRecorder.html#start()" target="_blank">start()</a> recording and you'll notice the cast icon appear in your phone's status bar.</p>
+            <figure>
+                <img src="https://cdn-images-1.medium.com/max/800/1*o4ksbkubrCRD4pR10uGFzA.png" alt="Cast icon in status bar" />
+            </figure>
+            <p>When you're ready, call <a href="https://developer.android.com/reference/android/media/MediaRecorder.html#stop()" target="_blank">stop()</a>. It's also important to release the MediaProjection and VirtualDisplay too. The recording will then be saved to the location you define in <a href="https://developer.android.com/reference/android/media/MediaRecorder.html#setOutputFile(java.lang.String)" target="_blank">setOutputFile</a>.</p>
+            <pre><code>mMediaRecorder?.stop()
+mMediaProjection?.stop()
+mVirtualDisplay?.release()</code></pre>
+
+            <div class="further-reading">
+                <h4>Further Reading</h4>
+                <ul>
+                    <li><a href="https://developer.android.com/guide/topics/media/mediarecorder.html" target="_blank">MediaRecorder | Android Developers</a></li>
+                    <li><a href="https://github.com/googlesamples/android-ScreenCapture" target="_blank">googlesamples/android-ScreenCapture</a></li>
+                </ul>
+            </div>
+
+            <div class="article-source">
+                Originally published on <a href="https://medium.com/@jimmithy/recording-your-android-screen-7e0e75aae260" target="_blank">Medium</a> on January 28, 2018.
+            </div>
+        </article>
+    </section>
+</body>
+
+</html>
