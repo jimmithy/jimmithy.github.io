@@ -1,0 +1,238 @@
+<html lang="en">
+
+<head>
+    <title>Android Oreo: Picture In Picture Mode - James O'Brien</title>
+    <link rel="canonical" href="https://medium.com/@jimmithy/android-oreo-picture-in-picture-mode-1822e1c645c1" />
+    <meta name="description" content="Introduction to Android Oreo's Picture In Picture mode and how to include it in your app." />
+    <link rel="icon" type="image/png" sizes="32x32" href="../fav/favicon-32x32.png" />
+    <link rel="icon" type="image/png" sizes="16x16" href="../fav/favicon-16x16.png" />
+    <link rel="manifest" href="../fav/site.webmanifest">
+    <link rel="stylesheet" type="text/css" href="../style.css" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto&display=swap">
+    <meta name="viewport" content="width=460" />
+    <meta charset="utf-8" />
+    <meta name="theme-color" content="#222222" />
+    <script>
+    (function(i, s, o, g, r, a, m) {
+        i['GoogleAnalyticsObject'] = r;
+        i[r] = i[r] || function() {
+            (i[r].q = i[r].q || []).push(arguments)
+        }, i[r].l = 1 * new Date();
+        a = s.createElement(o),
+            m = s.getElementsByTagName(o)[0];
+        a.async = 1;
+        a.src = g;
+        m.parentNode.insertBefore(a, m)
+    })(window, document, 'script', 'https://www.google-analytics.com/analytics.js', 'ga');
+
+    ga('create', 'UA-70691048-2', 'auto');
+    ga('send', 'pageview');
+    </script>
+    <style>
+        .article {
+            max-width: 680px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        .article h1 {
+            font-size: 36px;
+            margin-bottom: 10px;
+            text-transform: none;
+            letter-spacing: 0;
+        }
+        .article-meta {
+            color: #888;
+            font-size: 14px;
+            margin-bottom: 30px;
+        }
+        .article p {
+            font-size: 18px;
+            line-height: 1.7;
+            margin-bottom: 24px;
+            color: #333;
+        }
+        .article h2 {
+            font-size: 28px;
+            margin: 36px 0 16px;
+            text-transform: none;
+            letter-spacing: 0;
+        }
+        .article h3 {
+            font-size: 22px;
+            margin: 30px 0 12px;
+            text-transform: none;
+            letter-spacing: 0;
+        }
+        .article h4 {
+            font-size: 18px;
+            margin: 28px 0 10px;
+            text-transform: none;
+            letter-spacing: 0;
+        }
+        .article ul, .article ol {
+            font-size: 18px;
+            line-height: 1.7;
+            margin-bottom: 24px;
+            padding-left: 28px;
+            color: #333;
+        }
+        .article li {
+            margin-bottom: 8px;
+        }
+        .article pre {
+            background: #f4f4f4;
+            border-left: 3px solid #444444;
+            padding: 16px;
+            overflow-x: auto;
+            font-size: 14px;
+            line-height: 1.5;
+            margin-bottom: 24px;
+            white-space: pre-wrap;
+            word-break: break-word;
+        }
+        .article code {
+            background: #f4f4f4;
+            padding: 2px 5px;
+            font-size: 15px;
+            border-radius: 3px;
+            font-family: monospace;
+        }
+        .article pre code {
+            background: none;
+            padding: 0;
+            font-size: 14px;
+        }
+        .article figure {
+            margin: 0 0 24px;
+        }
+        .article figure img {
+            max-width: 100%;
+            height: auto;
+            display: block;
+            border: 1px solid rgba(0,0,0,.1);
+        }
+        .article figcaption {
+            font-size: 14px;
+            color: #888;
+            margin-top: 8px;
+            text-align: center;
+        }
+        .article .further-reading {
+            margin-top: 40px;
+            padding-top: 20px;
+            border-top: 1px solid #dddddd;
+        }
+        .article .further-reading h4 {
+            margin-bottom: 12px;
+        }
+        .article .further-reading ul {
+            font-size: 16px;
+        }
+        .article-source {
+            margin-top: 40px;
+            padding-top: 20px;
+            border-top: 1px solid #dddddd;
+            font-size: 14px;
+            color: #888;
+        }
+    </style>
+</head>
+
+<body>
+    <section id="header">
+        <div id="headerCenter">
+            <a href="../index.html"><img id="avatar" src="../img/avatar.png"/></a>
+            <a href="../index.html" id="title">James O'Brien</a>
+            <ul class="navigation">
+                <li><a href="../index.html">Home</a></li>
+                <li><a href="../apps">Applications</a></li>
+                <li><a href="../writings.html">Writings</a></li>
+            </ul>
+            <div class="social">
+                <a href="https://www.linkedin.com/in/jimmithy/" target="_blank" title="linkedin">
+                    <svg class="icons" width="20" height="20" viewBox="0 0 1000 1000">
+                        <path d="M892,10H108c-53.9,0-98,44.1-98,98v784c0,53.9,44.1,98,98,98h784c53.9,0,98-44.1,98-98V108C990,54.1,945.9,10,892,10z M304,843H157V402h147V843z M230.5,318.7c-49,0-88.2-39.2-88.2-88.2c0-49,39.2-88.2,88.2-88.2c49,0,88.2,39.2,88.2,88.2C318.7,279.5,279.5,318.7,230.5,318.7z M843,843H696V583.3c0-39.2-34.3-73.5-73.5-73.5c-39.2,0-73.5,34.3-73.5,73.5V843H402V402h147v58.8c24.5-39.2,78.4-68.6,122.5-68.6c93.1,0,171.5,78.4,171.5,171.5V843z"></path>
+                    </svg>
+                </a>
+            </div>
+        </div>
+    </section>
+    <section id="content">
+        <article class="article">
+            <h1>Android Oreo: Picture In Picture Mode</h1>
+            <p class="article-meta">September 6, 2017</p>
+
+            <figure>
+                <img src="https://cdn-images-1.medium.com/max/1200/1*qtbeDKJ9Xr2Uy7xteNLcxw.jpeg" alt="Picture In Picture Mode" />
+                <figcaption>Incalculable productivity improvement</figcaption>
+            </figure>
+
+            <p>The recent release of Android Oreo added a bunch of new features to the operating system, and one of my favourites is called Picture In Picture. This allows the user to shrink an Activity into the corner of the screen, and navigate away from the application while still being able to see the minimised content.</p>
+
+            <h4>Requirements</h4>
+            <ul>
+                <li>Android SDK v25, however some methods were introduced with v26</li>
+                <li>Android Build Tools v25.0.3</li>
+            </ul>
+
+            <h4>Preparing your Activity</h4>
+            <p>Activities must define that they support the Picture In Picture mode in the Android Manifest. It is also important that the activity specifies that it handles configuration changes so the activity isn't relaunched after layout changes.</p>
+            <pre><code>&lt;activity
+    android:name=".PictureInPictureActivity"
+    android:supportsPictureInPicture="true"
+    android:configChanges=
+        "screenSize|smallestScreenSize|screenLayout|orientation"</code></pre>
+            <p>When in Picture In Picture mode, it's possible to launch the same activity again. I would recommend setting the Activity's launch mode to <code>android:launchMode="singleTask"</code> to avoid confusing the user and having multiple instances of the same screen.</p>
+            <p>One gotcha in relation to Picture In Picture is that the activity is paused when entering the mode. In any multi-window mode, only the activity the user has most recently interacted with is considered active and all other activities are in the paused state. This means that the stopping of video playback, or any similar functionality, should be moved from <code><a href="https://developer.android.com/reference/android/app/Activity.html#onPause()">onPause()</a></code> to <code><a href="https://developer.android.com/reference/android/app/Activity.html#onStop()">onStop()</a></code>.</p>
+            <p>More information on this can be found here: <a href="https://developer.android.com/guide/topics/ui/multi-window.html#lifecycle" target="_blank">Multi-Window Lifecycle</a>.</p>
+
+            <h4>Entering Picture In Picture Mode</h4>
+            <p>All you really need to do is call <code><a href="https://developer.android.com/reference/android/app/Activity.html#enterPictureInPictureMode()">enterPictureInPictureMode()</a></code>. The activity will then automatically animate into position.</p>
+            <p>There's no predefined way to display this functionality to the user. If you were displaying a video, it could be shown as an action alongside the play/stop buttons. Alternatively, you could add it to the action bar menu item similar to the google cast button.</p>
+            <figure>
+                <img src="https://cdn-images-1.medium.com/max/800/1*tk2-bnZal__wBe-pCyIAyQ.png" alt="Picture In Picture iconography" />
+                <figcaption>Fortunately, Google provides suggested iconography — <a href="https://material.io/icons/" target="_blank">https://material.io/icons/</a></figcaption>
+            </figure>
+            <p>There's also <code><a href="https://developer.android.com/reference/android/app/Activity.html#enterPictureInPictureMode(android.app.PictureInPictureParams)">enterPictureInPictureMode(PictureInPictureParams)</a></code> which allows you to define some parameters for the Picture In Picture mode when launching.</p>
+
+            <h4>Monitor Changes</h4>
+            <p>You can monitor the current state of the Picture in Picture mode using a combination of <code><a href="https://developer.android.com/reference/android/app/Activity.html#onPictureInPictureModeChanged(boolean,%20android.content.res.Configuration)">onPictureInPictureModeChanged()</a></code> to be notified of changes and <code><a href="https://developer.android.com/reference/android/app/Activity.html#isInPictureInPictureMode()">isInPictureInPictureMode()</a></code> which reveals the current state.</p>
+            <pre><code>@Override
+void onPictureInPictureModeChanged(boolean isEnabled,
+    Configuration newConfig) {
+
+    Assert.assertEquals(isEnabled, isInPictureInPictureMode());
+}</code></pre>
+            <p>A good use case would be changing the visibility of secondary views between modes. It's recommended that when in Picture In Picture mode you should avoid showing anything except the main content. For example, the video content would remain visible but the title and description should be hidden.</p>
+
+            <h4>Maintaining Aspect Ratio</h4>
+            <p>By default Picture in Picture will display as a horizontal rectangle in the bottom right of the screen. This can be altered by providing an aspect ratio as a parameter.</p>
+            <p>We touched on <code><a href="https://developer.android.com/reference/android/app/PictureInPictureParams.html">PictureInPictureParams</a></code> earlier in the article, and we will be using them to set the aspect ratio of the minimised view with the <code><a href="https://developer.android.com/reference/android/app/PictureInPictureParams.Builder.html#setAspectRatio(android.util.Rational)">setAspectRatio</a></code> method. This doesn't need to be complicated; if you wish to maintain the current ratio just pass the width and height of the view, and the rest will be taken care of.</p>
+            <pre><code>aspectRatio = new Rational(view.getWidth(), view.getHeight());
+
+params = new PictureInPictureParams.Builder()
+             .setAspectRatio(aspectRatio)
+             .build();</code></pre>
+            <p>These parameters can be set with <code><a href="https://developer.android.com/reference/android/app/Activity.html#setPictureInPictureParams(android.app.PictureInPictureParams)">setPictureInPictureParams()</a></code> or by being passed as an argument when entering the mode.</p>
+            <p>There are also more <code>PictureInPictureParams</code> available such as setting a <a href="https://developer.android.com/reference/android/app/PictureInPictureParams.Builder.html#setActions(java.util.List)" target="_blank">number of actions</a> to be displayed while minimised and <a href="https://developer.android.com/reference/android/app/PictureInPictureParams.Builder.html#setSourceRectHint(android.graphics.Rect)" target="_blank">identifying the video bounds</a> for animating the view.</p>
+
+            <h4>Final Thoughts</h4>
+            <p>We will likely be well into 2018 before Android Oreo's adoption is considered significant, but thinking about these types of features when designing your applications can help with simplification and usability.</p>
+            <p>I know I'm guilty of browsing twitter etc on my phone while also watching the television, and I don't think it will be long before people will want the same ability on their personal devices.</p>
+
+            <div class="further-reading">
+                <h4>Further Reading</h4>
+                <ul>
+                    <li><a href="https://developer.android.com/training/tv/playback/picture-in-picture.html" target="_blank">Adding Picture-in-picture | Android Developers</a></li>
+                    <li><a href="https://github.com/googlesamples/android-PictureInPicture" target="_blank">googlesamples/android-PictureInPicture</a></li>
+                </ul>
+            </div>
+
+            <div class="article-source">
+                Originally published on <a href="https://medium.com/@jimmithy/android-oreo-picture-in-picture-mode-1822e1c645c1" target="_blank">Medium</a> on September 6, 2017.
+            </div>
+        </article>
+    </section>
+</body>
+
+</html>
