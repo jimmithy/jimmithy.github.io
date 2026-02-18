@@ -290,3 +290,41 @@ hr {
         margin-right: 0px;
     }
 }
+
+@media (prefers-color-scheme: dark) {
+    body {
+        background: #1a1a1a;
+        color: #d0d0d0;
+    }
+
+    a,
+    a:visited {
+        color: #7dbfdd;
+    }
+
+    a.title {
+        color: #d0d0d0;
+    }
+
+    #header {
+        background: #2a6d87;
+    }
+
+    #description {
+        color: #d0d0d0;
+    }
+
+    #description a {
+        color: #d0d0d0;
+    }
+
+    hr {
+        background-color: #1a1a1a;
+        border-top-color: #4a8fa8;
+    }
+
+    .item img,
+    .smallitem img {
+        border-color: rgba(255, 255, 255, 0.1) !important;
+    }
+}
