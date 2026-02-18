@@ -11,13 +11,15 @@ body {
 
 a,
 a:visited {
-    color: #529ECC;
+    color: #333333;
     text-decoration: none;
+    font-weight: 600;
 }
 
 a.title {
     color: #444444;
     font-weight: bold;
+    text-decoration: none;
 }
 
 h1,
@@ -63,7 +65,7 @@ h5 {
 }
 
 #header {
-    background: #3e98ba;
+    background: #222222;
     max-width: 100%;
     padding: 10px;
 }
@@ -121,7 +123,7 @@ h5 {
 .navigation a {
     text-decoration: none;
     font-size: 14px!important;
-    color: #C6E4F3;
+    color: #aaaaaa;
     text-decoration: none;
     cursor: pointer;
     letter-spacing: 0!important;
@@ -140,7 +142,7 @@ h5 {
 
 hr {
     width: 300px;
-    border-top: 1px solid #C6E4F3;
+    border-top: 1px solid #dddddd;
     border-left: none;
     border-right: none;
     border-bottom: none;
@@ -156,7 +158,7 @@ hr {
 }
 
 .divider {
-    background: #3e98ba;
+    background: #222222;
     clear: left;
     width: 100%;
     min-height: 300px;
@@ -258,7 +260,7 @@ hr {
 }
 
 .icons {
-    fill: #C6E4F3;
+    fill: #aaaaaa;
     display: inline-block;
     margin-left: 5px;
 }
@@ -288,5 +290,44 @@ hr {
     }
     .social {
         margin-right: 0px;
+    }
+}
+
+@media (prefers-color-scheme: dark) {
+    body {
+        background: #1a1a1a;
+        color: #d0d0d0;
+    }
+
+    a,
+    a:visited {
+        color: #cccccc;
+    }
+
+    a.title {
+        color: #d0d0d0;
+    }
+
+    #header,
+    .divider {
+        background: #222222;
+    }
+
+    #description {
+        color: #d0d0d0;
+    }
+
+    #description a {
+        color: #d0d0d0;
+    }
+
+    hr {
+        background-color: #1a1a1a;
+        border-top-color: #333333;
+    }
+
+    .item img,
+    .smallitem img {
+        border-color: rgba(255, 255, 255, 0.1) !important;
     }
 }
