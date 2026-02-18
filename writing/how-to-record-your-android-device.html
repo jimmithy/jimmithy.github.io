@@ -187,7 +187,7 @@ startActivityForResult(manager.createScreenCaptureIntent(), REQUEST_MEDIA_PROJEC
                 <img src="https://cdn-images-1.medium.com/max/800/1*0bzXcoHL7JmB--z-oU8UYA.png" alt="Screen capture permission dialog" />
             </figure>
             <p>Launching this intent will show a confirmation dialog to the user which allows them to authorise the screen capturing.</p>
-            <p>Once they accept, you can use the result code and data intent returned in onActivityResult, we are able to create a <a href="https://developer.android.com/reference/android/media/projection/MediaProjection.html" target="_blank">MediaProjection</a>.</p>
+            <p>Once they accept, you can use the result code and data intent returned in onActivityResult to create a <a href="https://developer.android.com/reference/android/media/projection/MediaProjection.html" target="_blank">MediaProjection</a>.</p>
             <pre><code>projection = manager.getMediaProjection(resultCode, data) as MediaProjection</code></pre>
 
             <h4>Recording</h4>
