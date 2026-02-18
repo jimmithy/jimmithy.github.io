@@ -8,8 +8,8 @@
             "type": "image/png"
         }
     ],
-    "theme_color": "#1f1f1f",
-    "background_color": "#1f1f1f",
+    "theme_color": "#2e2e2e",
+    "background_color": "#2e2e2e",
     "start_url": "http://jamesob.com",
     "display": "standalone"
 }
