@@ -308,8 +308,9 @@ hr {
         color: #d0d0d0;
     }
 
-    #header {
-        background: #111111;
+    #header,
+    .divider {
+        background: #222222;
     }
 
     #description {
