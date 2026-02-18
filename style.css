@@ -11,13 +11,14 @@ body {
 
 a,
 a:visited {
-    color: #529ECC;
-    text-decoration: none;
+    color: #333333;
+    text-decoration: underline;
 }
 
 a.title {
     color: #444444;
     font-weight: bold;
+    text-decoration: none;
 }
 
 h1,
@@ -121,7 +122,7 @@ h5 {
 .navigation a {
     text-decoration: none;
     font-size: 14px!important;
-    color: #C6E4F3;
+    color: #aaaaaa;
     text-decoration: none;
     cursor: pointer;
     letter-spacing: 0!important;
@@ -258,7 +259,7 @@ hr {
 }
 
 .icons {
-    fill: #C6E4F3;
+    fill: #aaaaaa;
     display: inline-block;
     margin-left: 5px;
 }
@@ -299,7 +300,7 @@ hr {
 
     a,
     a:visited {
-        color: #7dbfdd;
+        color: #aaaaaa;
     }
 
     a.title {
