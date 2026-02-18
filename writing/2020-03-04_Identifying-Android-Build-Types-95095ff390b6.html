@@ -1,0 +1,72 @@
+<!DOCTYPE html><html><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"><title>Identifying Android Build Types</title><style>
+      * {
+        font-family: Georgia, Cambria, "Times New Roman", Times, serif;
+      }
+      html, body {
+        margin: 0;
+        padding: 0;
+      }
+      h1 {
+        font-size: 50px;
+        margin-bottom: 17px;
+        color: #333;
+      }
+      h2 {
+        font-size: 24px;
+        line-height: 1.6;
+        margin: 30px 0 0 0;
+        margin-bottom: 18px;
+        margin-top: 33px;
+        color: #333;
+      }
+      h3 {
+        font-size: 30px;
+        margin: 10px 0 20px 0;
+        color: #333;
+      }
+      header {
+        width: 640px;
+        margin: auto;
+      }
+      section {
+        width: 640px;
+        margin: auto;
+      }
+      section p {
+        margin-bottom: 27px;
+        font-size: 20px;
+        line-height: 1.6;
+        color: #333;
+      }
+      section img {
+        max-width: 640px;
+      }
+      footer {
+        padding: 0 20px;
+        margin: 50px 0;
+        text-align: center;
+        font-size: 12px;
+      }
+      .aspectRatioPlaceholder {
+        max-width: auto !important;
+        max-height: auto !important;
+      }
+      .aspectRatioPlaceholder-fill {
+        padding-bottom: 0 !important;
+      }
+      header,
+      section[data-field=subtitle],
+      section[data-field=description] {
+        display: none;
+      }
+      </style></head><body><article class="h-entry">
+<header>
+<h1 class="p-name">Identifying Android Build Types</h1>
+</header>
+<section data-field="subtitle" class="p-summary">
+Customizing your app launcher name and icon to differentiate between build variants
+</section>
+<section data-field="body" class="e-content">
+<section name="4a2b" class="section section--body section--first"><div class="section-divider"><hr class="section-divider"></div><div class="section-content"><div class="section-inner sectionLayout--insetColumn"><h3 name="7415" id="7415" class="graf graf--h3 graf--leading graf--title">Identifying Android Build Types</h3><figure name="0ec6" id="0ec6" class="graf graf--figure graf-after--h3"><img class="graf-image" data-image-id="1*dO9tl6PtMktBuHrYqBcOQg.png" data-width="654" data-height="281" data-is-featured="true" src="https://cdn-images-1.medium.com/max/800/1*dO9tl6PtMktBuHrYqBcOQg.png"></figure><p name="d3a0" id="d3a0" class="graf graf--p graf-after--figure">During development it’s common to add different <a href="https://developer.android.com/studio/build/build-variants" data-href="https://developer.android.com/studio/build/build-variants" class="markup--anchor markup--p-anchor" rel="noopener" target="_blank">build variants</a>. Build variants are used to create different versions of your application within a single project. This can be used to differentiate between a paid version and a free version of an applications, or white-label a solution for multiple identities.</p><p name="a10c" id="a10c" class="graf graf--p graf-after--p">In this post, I’m going to briefly show how to add your own build types and provide two methods for differentiating for quick development and testing.</p><h3 name="c086" id="c086" class="graf graf--h3 graf-after--p">Adding Build types</h3><p name="a44f" id="a44f" class="graf graf--p graf-after--h3">Adding build types is relatively simple. Opening your application’s <em class="markup--em markup--p-em">build.gradle</em> file, you should see that Android Studio has already created a buildType for a release. We can add our own buildTypes here for debug and enable debugging.</p><figure name="8ce8" id="8ce8" class="graf graf--figure graf-after--p"><img class="graf-image" data-image-id="1*1o0f2WmC7Rn-w6ORIF2tvA.png" data-width="696" data-height="346" src="https://cdn-images-1.medium.com/max/800/1*1o0f2WmC7Rn-w6ORIF2tvA.png"></figure><h3 name="04e8" id="04e8" class="graf graf--h3 graf-after--figure">Overriding Resources</h3><p name="e012" id="e012" class="graf graf--p graf-after--h3">At run time, Android figures out the best resources to use based on your configuration. You have the ability to define items for different orientations, OS version number, and even things like screen size by creating items with the same name but a different qualifier.</p><p name="3cf7" id="3cf7" class="graf graf--p graf-after--p"><a href="https://developer.android.com/guide/topics/resources/providing-resources#AlternativeResources" data-href="https://developer.android.com/guide/topics/resources/providing-resources#AlternativeResources" class="markup--anchor markup--p-anchor" rel="noopener" target="_blank">https://developer.android.com/guide/topics/resources/providing-resources</a></p><h3 name="9774" id="9774" class="graf graf--h3 graf-after--p">Overriding the Label</h3><p name="9045" id="9045" class="graf graf--p graf-after--h3">To override the application name for debug versions we need to create a new strings file in the debug source set.</p><figure name="dc64" id="dc64" class="graf graf--figure graf-after--p"><img class="graf-image" data-image-id="1*Utt2GoGG8SsB8egCOQB1sw.png" data-width="833" data-height="483" src="https://cdn-images-1.medium.com/max/800/1*Utt2GoGG8SsB8egCOQB1sw.png"></figure><p name="8529" id="8529" class="graf graf--p graf-after--figure">In the ‘New Resource File’ screen, we can create a new version of the strings.xml file and select the debug source set. We then add a new string for app_name with our custom label.</p><p name="5e56" id="5e56" class="graf graf--p graf-after--p">Below is how the file would look. There is a single string definition, with the same name as the one in the main strings file, however it has a name specific to the build type.</p><pre name="f98e" id="f98e" class="graf graf--pre graf-after--p">&lt;?xml version=&quot;1.0&quot; encoding=&quot;utf-8&quot;?&gt;<br>&lt;resources&gt;<br>    &lt;string name=&quot;app_name&quot;&gt;Icon Debug&lt;/string&gt;<br>&lt;/resources&gt;</pre><h3 name="0970" id="0970" class="graf graf--h3 graf-after--pre">Using Custom Launcher Icons</h3><p name="fa64" id="fa64" class="graf graf--p graf-after--h3">The adaptive icon builder creates a layout with two layers: a background and a foreground. Here’s an example of what your adaptive launcher icon may look like:</p><pre name="eb78" id="eb78" class="graf graf--pre graf-after--p">&lt;?xml version=&quot;1.0&quot; encoding=&quot;utf-8&quot;?&gt;<br>&lt;adaptive-icon xmlns:android=&quot;http://schemas.android.com/apk/res/android&quot;&gt;<br>    &lt;background android:drawable=&quot;@drawable/ic_launcher_bg&quot; /&gt;<br>    &lt;foreground android:drawable=&quot;@drawable/ic_launcher_fg&quot; /&gt;<br>&lt;/adaptive-icon&gt;</pre><p name="c2d9" id="c2d9" class="graf graf--p graf-after--pre">Using the method in the previous section for overriding resources, we can create a new foreground drawable in the debug specific values folder. This way we can add overlays to our launcher to differentiate the build variant.</p><p name="dd11" id="dd11" class="graf graf--p graf-after--p">We can then change the foreground icon to have extra layers using a <em class="markup--em markup--p-em">LayerListDrawable</em>. We want to add it as the first item so it appears behind all other items.</p><figure name="e03d" id="e03d" class="graf graf--figure graf-after--p"><img class="graf-image" data-image-id="1*48X5Vz_1VwR2eXylZlHQlA.png" data-width="222" data-height="289" src="https://cdn-images-1.medium.com/max/800/1*48X5Vz_1VwR2eXylZlHQlA.png"><figcaption class="imageCaption">Icon Banner with Paw Print (Dog Fooding)</figcaption></figure><pre name="391c" id="391c" class="graf graf--pre graf-after--figure">&lt;?xml version=&quot;1.0&quot; encoding=&quot;utf-8&quot;?&gt;<br>&lt;layer-list xmlns:android=&quot;http://schemas.android.com/apk/res/android&quot;&gt;<br>    &lt;item&gt;<br>        &lt;!--- Place your original vector icon here --&gt;<br>    &lt;/item&gt;<br>    &lt;item<br>        android:height=&quot;16dp&quot;<br>        android:bottom=&quot;16dp&quot;<br>        android:gravity=&quot;bottom&quot;&gt;<br>        &lt;shape android:shape=&quot;rectangle&quot;&gt;<br>            &lt;corners android:radius=&quot;2dp&quot; /&gt;<br>            &lt;size<br>                android:width=&quot;10dp&quot;<br>                android:height=&quot;10dp&quot; /&gt;<br>            &lt;solid android:color=&quot;#80FFFFFF&quot; /&gt;<br>        &lt;/shape&gt;<br>    &lt;/item&gt;<br>    &lt;item<br>        android:bottom=&quot;16dp&quot;<br>        android:gravity=&quot;center_horizontal|bottom&quot;&gt;</pre><pre name="5c62" id="5c62" class="graf graf--pre graf-after--pre graf--trailing">        &lt;!--- Debug Indicator Vector Drawable ---&gt;<br>        &lt;vector<br>            android:width=&quot;16dp&quot;<br>            android:height=&quot;16dp&quot;<br>            android:viewportWidth=&quot;24&quot;<br>            android:viewportHeight=&quot;24&quot;&gt;<br>            &lt;path<br>                android:fillColor=&quot;#B3000000&quot;<br>                android:pathData=&quot;M8.35,3C9.53,2.83 10.78,4.12 11.14,5.9C11.5,7.67 10.85,9.25 9.67,9.43C8.5,9.61 7.24,8.32 6.87,6.54C6.5,4.77 7.17,3.19 8.35,3M15.5,3C16.69,3.19 17.35,4.77 17,6.54C16.62,8.32 15.37,9.61 14.19,9.43C13,9.25 12.35,7.67 12.72,5.9C13.08,4.12 14.33,2.83 15.5,3M3,7.6C4.14,7.11 5.69,8 6.5,9.55C7.26,11.13 7,12.79 5.87,13.28C4.74,13.77 3.2,12.89 2.41,11.32C1.62,9.75 1.9,8.08 3,7.6M21,7.6C22.1,8.08 22.38,9.75 21.59,11.32C20.8,12.89 19.26,13.77 18.13,13.28C17,12.79 16.74,11.13 17.5,9.55C18.31,8 19.86,7.11 21,7.6M19.33,18.38C19.37,19.32 18.65,20.36 17.79,20.75C16,21.57 13.88,19.87 11.89,19.87C9.9,19.87 7.76,21.64 6,20.75C5,20.26 4.31,18.96 4.44,17.88C4.62,16.39 6.41,15.59 7.47,14.5C8.88,13.09 9.88,10.44 11.89,10.44C13.89,10.44 14.95,13.05 16.3,14.5C17.41,15.72 19.26,16.75 19.33,18.38Z&quot; /&gt;<br>        &lt;/vector&gt;<br>    &lt;/item&gt;<br>&lt;/layer-list&gt;</pre></div></div></section><section name="79e2" class="section section--body section--last"><div class="section-divider"><hr class="section-divider"></div><div class="section-content"><div class="section-inner sectionLayout--insetColumn"><div name="e034" id="e034" class="graf graf--mixtapeEmbed graf--leading"><a href="https://developer.android.com/studio/build/build-variants" data-href="https://developer.android.com/studio/build/build-variants" class="markup--anchor markup--mixtapeEmbed-anchor" title="https://developer.android.com/studio/build/build-variants"><strong class="markup--strong markup--mixtapeEmbed-strong">Configure build variants | Android Developers</strong><br><em class="markup--em markup--mixtapeEmbed-em">The number of build variants Gradle creates is equal to the product of the number of flavors in each flavor dimension…</em>developer.android.com</a><a href="https://developer.android.com/studio/build/build-variants" class="js-mixtapeImage mixtapeImage u-ignoreBlock" data-media-id="580080b0b38091db144fbea7461054e9" data-thumbnail-img-id="0*OM2cfvOT-HQcQqbU" style="background-image: url(https://cdn-images-1.medium.com/fit/c/160/160/0*OM2cfvOT-HQcQqbU);"></a></div><div name="f40a" id="f40a" class="graf graf--mixtapeEmbed graf-after--mixtapeEmbed graf--trailing"><a href="https://developer.android.com/guide/topics/resources/providing-resources#AlternativeResources" data-href="https://developer.android.com/guide/topics/resources/providing-resources#AlternativeResources" class="markup--anchor markup--mixtapeEmbed-anchor" title="https://developer.android.com/guide/topics/resources/providing-resources#AlternativeResources"><strong class="markup--strong markup--mixtapeEmbed-strong">App resources overview | Android Developers</strong><br><em class="markup--em markup--mixtapeEmbed-em">Almost every app should provide alternative resources to support specific device configurations. For instance, you…</em>developer.android.com</a><a href="https://developer.android.com/guide/topics/resources/providing-resources#AlternativeResources" class="js-mixtapeImage mixtapeImage u-ignoreBlock" data-media-id="7de5f43e764dd0b2b22e292d837fccf6" data-thumbnail-img-id="0*IR6mqL8lDC6-Rqti" style="background-image: url(https://cdn-images-1.medium.com/fit/c/160/160/0*IR6mqL8lDC6-Rqti);"></a></div></div></div></section>
+</section>
+<footer><p>By <a href="https://medium.com/@jimmithy" class="p-author h-card">James O&#39;Brien</a> on <a href="https://medium.com/p/95095ff390b6"><time class="dt-published" datetime="2020-03-04T16:50:43.017Z">March 4, 2020</time></a>.</p><p><a href="https://medium.com/@jimmithy/identifying-android-build-types-95095ff390b6" class="p-canonical">Canonical link</a></p><p>Exported from <a href="https://medium.com">Medium</a> on February 18, 2026.</p></footer></article></body></html>
