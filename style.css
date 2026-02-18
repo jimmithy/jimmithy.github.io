@@ -63,7 +63,7 @@ h5 {
 }
 
 #header {
-    background: #3e98ba;
+    background: #1f1f1f;
     max-width: 100%;
     padding: 10px;
 }
@@ -140,7 +140,7 @@ h5 {
 
 hr {
     width: 300px;
-    border-top: 1px solid #C6E4F3;
+    border-top: 1px solid #dddddd;
     border-left: none;
     border-right: none;
     border-bottom: none;
@@ -156,7 +156,7 @@ hr {
 }
 
 .divider {
-    background: #3e98ba;
+    background: #1f1f1f;
     clear: left;
     width: 100%;
     min-height: 300px;
@@ -307,7 +307,7 @@ hr {
     }
 
     #header {
-        background: #2a6d87;
+        background: #111111;
     }
 
     #description {
@@ -320,7 +320,7 @@ hr {
 
     hr {
         background-color: #1a1a1a;
-        border-top-color: #4a8fa8;
+        border-top-color: #333333;
     }
 
     .item img,
