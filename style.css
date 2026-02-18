@@ -65,7 +65,7 @@ h5 {
 }
 
 #header {
-    background: #1f1f1f;
+    background: #2e2e2e;
     max-width: 100%;
     padding: 10px;
 }
@@ -158,7 +158,7 @@ hr {
 }
 
 .divider {
-    background: #1f1f1f;
+    background: #2e2e2e;
     clear: left;
     width: 100%;
     min-height: 300px;
@@ -308,8 +308,9 @@ hr {
         color: #d0d0d0;
     }
 
-    #header {
-        background: #111111;
+    #header,
+    .divider {
+        background: #222222;
     }
 
     #description {
