@@ -135,6 +135,33 @@
             font-size: 14px;
             color: #888;
         }
+        @media (prefers-color-scheme: dark) {
+            .article p,
+            .article ul,
+            .article ol {
+                color: #d0d0d0;
+            }
+            .article pre {
+                background: #2a2a2a;
+                border-left-color: #666666;
+            }
+            .article code {
+                background: #2a2a2a;
+                color: #d0d0d0;
+            }
+            .article figure img {
+                border-color: rgba(255, 255, 255, 0.1);
+            }
+            .article figcaption,
+            .article-meta {
+                color: #aaaaaa;
+            }
+            .article .further-reading,
+            .article-source {
+                border-top-color: #333333;
+                color: #aaaaaa;
+            }
+        }
     </style>
 </head>
 
