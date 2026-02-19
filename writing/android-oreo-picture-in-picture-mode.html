@@ -135,6 +135,33 @@
             font-size: 14px;
             color: #888;
         }
+        @media (prefers-color-scheme: dark) {
+            .article p,
+            .article ul,
+            .article ol {
+                color: #d0d0d0;
+            }
+            .article pre {
+                background: #2a2a2a;
+                border-left-color: #666666;
+            }
+            .article code {
+                background: #2a2a2a;
+                color: #d0d0d0;
+            }
+            .article figure img {
+                border-color: rgba(255, 255, 255, 0.1);
+            }
+            .article figcaption,
+            .article-meta {
+                color: #aaaaaa;
+            }
+            .article .further-reading,
+            .article-source {
+                border-top-color: #333333;
+                color: #aaaaaa;
+            }
+        }
     </style>
 </head>
 
@@ -163,7 +190,7 @@
             <p class="article-meta">September 6, 2017</p>
 
             <figure>
-                <img src="https://cdn-images-1.medium.com/max/1200/1*qtbeDKJ9Xr2Uy7xteNLcxw.jpeg" alt="Picture In Picture Mode" />
+                <img src="img/1_qtbeDKJ9Xr2Uy7xteNLcxw.jpg" alt="Picture In Picture Mode" />
                 <figcaption>Incalculable productivity improvement</figcaption>
             </figure>
 
@@ -190,7 +217,7 @@
             <p>All you really need to do is call <code><a href="https://developer.android.com/reference/android/app/Activity.html#enterPictureInPictureMode()">enterPictureInPictureMode()</a></code>. The activity will then automatically animate into position.</p>
             <p>There's no predefined way to display this functionality to the user. If you were displaying a video, it could be shown as an action alongside the play/stop buttons. Alternatively, you could add it to the action bar menu item similar to the google cast button.</p>
             <figure>
-                <img src="https://cdn-images-1.medium.com/max/800/1*tk2-bnZal__wBe-pCyIAyQ.png" alt="Picture In Picture iconography" />
+                <img src="img/1_tk2-bnZal__wBe-pCyIAyQ.png" alt="Picture In Picture iconography" />
                 <figcaption>Fortunately, Google provides suggested iconography — <a href="https://material.io/icons/" target="_blank">https://material.io/icons/</a></figcaption>
             </figure>
             <p>There's also <code><a href="https://developer.android.com/reference/android/app/Activity.html#enterPictureInPictureMode(android.app.PictureInPictureParams)">enterPictureInPictureMode(PictureInPictureParams)</a></code> which allows you to define some parameters for the Picture In Picture mode when launching.</p>
