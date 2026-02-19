@@ -72,7 +72,6 @@ h5 {
 
 #headerCenter {
     max-width: 1260px;
-    min-width: 400px;
     margin: 0 auto;
 }
 
@@ -97,7 +96,6 @@ h5 {
 }
 
 #description {
-    min-width: 400px;
     margin: 10px;
     color: #000000;
     font-style: italic;
@@ -152,9 +150,9 @@ hr {
 
 #content {
     max-width: 1280px;
-    min-width: 420px;
     padding: 20px;
     margin: 0 auto;
+    box-sizing: border-box;
 }
 
 .divider {
@@ -166,7 +164,6 @@ hr {
 
 .fullitem {
     max-width: 1260px;
-    min-width: 400px;
     margin: 10px;
 }
 
@@ -208,7 +205,6 @@ hr {
 
 .sectionitem {
     max-width: 100%;
-    min-width: 400px;
     margin: 0px 0px 20px 10px;
     clear: left;
 }
@@ -283,13 +279,30 @@ hr {
 
 @media screen and (max-width: 920px) {
     #headerCenter {
-        width: 400px;
+        max-width: 100%;
+        box-sizing: border-box;
     }
     #content {
-        width: 400px;
+        max-width: 100%;
     }
     .social {
         margin-right: 0px;
+    }
+    .item {
+        width: 100%;
+        min-width: 0;
+        float: none;
+        box-sizing: border-box;
+    }
+    .promo {
+        width: 100%;
+        max-width: 400px;
+        height: auto;
+        float: none;
+    }
+    .promo img {
+        width: 100%;
+        height: auto;
     }
 }
 
