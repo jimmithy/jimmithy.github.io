@@ -190,7 +190,7 @@
             <p class="article-meta">March 4, 2020</p>
 
             <figure>
-                <img src="https://cdn-images-1.medium.com/max/800/1*dO9tl6PtMktBuHrYqBcOQg.png" alt="Android build type icons" />
+                <img src="img/1_dO9tl6PtMktBuHrYqBcOQg.png" alt="Android build type icons" />
             </figure>
 
             <p>During development it's common to add different <a href="https://developer.android.com/studio/build/build-variants" target="_blank">build variants</a>. Build variants are used to create different versions of your application within a single project. This can be used to differentiate between a paid version and a free version of an applications, or white-label a solution for multiple identities.</p>
@@ -199,7 +199,7 @@
             <h3>Adding Build Types</h3>
             <p>Adding build types is relatively simple. Opening your application's <em>build.gradle</em> file, you should see that Android Studio has already created a buildType for a release. We can add our own buildTypes here for debug and enable debugging.</p>
             <figure>
-                <img src="https://cdn-images-1.medium.com/max/800/1*1o0f2WmC7Rn-w6ORIF2tvA.png" alt="build.gradle buildTypes configuration" />
+                <img src="img/1_1o0f2WmC7Rn-w6ORIF2tvA.png" alt="build.gradle buildTypes configuration" />
             </figure>
 
             <h3>Overriding Resources</h3>
@@ -209,7 +209,7 @@
             <h3>Overriding the Label</h3>
             <p>To override the application name for debug versions we need to create a new strings file in the debug source set.</p>
             <figure>
-                <img src="https://cdn-images-1.medium.com/max/800/1*Utt2GoGG8SsB8egCOQB1sw.png" alt="New Resource File dialog" />
+                <img src="img/1_Utt2GoGG8SsB8egCOQB1sw.png" alt="New Resource File dialog" />
             </figure>
             <p>In the 'New Resource File' screen, we can create a new version of the strings.xml file and select the debug source set. We then add a new string for app_name with our custom label.</p>
             <p>Below is how the file would look. There is a single string definition, with the same name as the one in the main strings file, however it has a name specific to the build type.</p>
@@ -228,7 +228,7 @@
             <p>Using the method in the previous section for overriding resources, we can create a new foreground drawable in the debug specific values folder. This way we can add overlays to our launcher to differentiate the build variant.</p>
             <p>We can then change the foreground icon to have extra layers using a <em>LayerListDrawable</em>. We want to add it as the first item so it appears behind all other items.</p>
             <figure>
-                <img src="https://cdn-images-1.medium.com/max/800/1*48X5Vz_1VwR2eXylZlHQlA.png" alt="Icon Banner with Paw Print" />
+                <img src="img/1_48X5Vz_1VwR2eXylZlHQlA.png" alt="Icon Banner with Paw Print" />
                 <figcaption>Icon Banner with Paw Print (Dog Fooding)</figcaption>
             </figure>
             <pre><code>&lt;?xml version="1.0" encoding="utf-8"?&gt;

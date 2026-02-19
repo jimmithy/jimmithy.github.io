@@ -197,7 +197,7 @@
             <p>The first problem I needed to solve was to figure out the relationship between Bitrise builds and Jira tickets. My workplace typically require that the Jira ticket is included in the commit message and/or the branch name. Fortunately, Bitrise provide these as environment variables which I can then search for the ticket number.</p>
             <p>I visited the workflow editor, selected my primary workflow, and added a new step at the end. I was unable to find an existing step that would identify Jira tickets, so I selected the <em>Script</em> step which would let me run my custom bash query.</p>
             <figure>
-                <img src="https://cdn-images-1.medium.com/max/800/1*Jqj-d7DLAO8XQAT7zUPEcg.png" alt="Bitrise workflow editor showing Find Jira Issue step" />
+                <img src="img/1_Jqj-d7DLAO8XQAT7zUPEcg.png" alt="Bitrise workflow editor showing Find Jira Issue step" />
                 <figcaption>I named it 'Find Jira Issue' so it could be easily identified in the workflow</figcaption>
             </figure>
 
@@ -253,7 +253,7 @@ fi</code></pre>
             <h3>Post Jira Comment Integration</h3>
             <p>I used the Bitrise provided <em>Post Jira Comment</em> workflow step. A link can be found below. I went with this approach because it removed the complication of authorization and formatting the HTTP Post request.</p>
             <figure>
-                <img src="https://cdn-images-1.medium.com/max/800/1*N2KQGHC0EA30lATq7phcRg.png" alt="Post Jira Comment step in Bitrise workflow" />
+                <img src="img/1_N2KQGHC0EA30lATq7phcRg.png" alt="Post Jira Comment step in Bitrise workflow" />
                 <figcaption>Make sure you toggle the box that indicates that this step should not run if the previous step failed.</figcaption>
             </figure>
 
@@ -272,7 +272,7 @@ fi</code></pre>
 
 [Download|$BITRISE_PUBLIC_INSTALL_PAGE_URL] | [Details|$BITRISE_BUILD_URL]</code></pre>
             <figure>
-                <img src="https://cdn-images-1.medium.com/max/800/1*YC98vJMPDxESSWJvmBEFjg.png" alt="The finished Jira comment result" />
+                <img src="img/1_YC98vJMPDxESSWJvmBEFjg.png" alt="The finished Jira comment result" />
                 <figcaption>The Finished Result</figcaption>
             </figure>
             <p>Overall this increased the productivity of our team and ensured that my colleagues could be effective with their time. By watching Jira tickets, colleagues would be notified by email when builds would be complete and it also provided a link to the public download page so it was easier for non-technical employees to download builds without navigating the Bitrise details page.</p>

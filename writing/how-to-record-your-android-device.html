@@ -190,7 +190,7 @@
             <p class="article-meta">January 28, 2018</p>
 
             <figure>
-                <img src="https://cdn-images-1.medium.com/max/1200/1*gj94gQoq4wpGkbCB0DRVUw.png" alt="MediaProjection and MediaRecorder" />
+                <img src="img/1_gj94gQoq4wpGkbCB0DRVUw.png" alt="MediaProjection and MediaRecorder" />
             </figure>
 
             <p>For a recent project I tasked myself with finding a way to let the user record what they were seeing on the device. The nuts and bolts of the solution can be identified with two classes:</p>
@@ -211,7 +211,7 @@
 
 startActivityForResult(manager.createScreenCaptureIntent(), REQUEST_MEDIA_PROJECTION)</code></pre>
             <figure>
-                <img src="https://cdn-images-1.medium.com/max/800/1*0bzXcoHL7JmB--z-oU8UYA.png" alt="Screen capture permission dialog" />
+                <img src="img/1_0bzXcoHL7JmB--z-oU8UYA.png" alt="Screen capture permission dialog" />
             </figure>
             <p>Launching this intent will show a confirmation dialog to the user which allows them to authorise the screen capturing.</p>
             <p>Once they accept, you can use the result code and data intent returned in onActivityResult to create a <a href="https://developer.android.com/reference/android/media/projection/MediaProjection.html" target="_blank">MediaProjection</a>.</p>
@@ -237,7 +237,7 @@ mMediaRecorder.prepare()</code></pre>
     mMediaRecorder.surface, null, null)</code></pre>
             <p>Now everything is set up, tell the MediaRecorder to <a href="https://developer.android.com/reference/android/media/MediaRecorder.html#start()" target="_blank">start()</a> recording and you'll notice the cast icon appear in your phone's status bar.</p>
             <figure>
-                <img src="https://cdn-images-1.medium.com/max/800/1*o4ksbkubrCRD4pR10uGFzA.png" alt="Cast icon in status bar" />
+                <img src="img/1_o4ksbkubrCRD4pR10uGFzA.png" alt="Cast icon in status bar" />
             </figure>
             <p>When you're ready, call <a href="https://developer.android.com/reference/android/media/MediaRecorder.html#stop()" target="_blank">stop()</a>. It's also important to release the MediaProjection and VirtualDisplay too. The recording will then be saved to the location you define in <a href="https://developer.android.com/reference/android/media/MediaRecorder.html#setOutputFile(java.lang.String)" target="_blank">setOutputFile</a>.</p>
             <pre><code>mMediaRecorder?.stop()
