@@ -261,6 +261,26 @@ hr {
     border: 1px solid rgba(0, 0, 0, .1)!important;
 }
 
+.monogram-thumb {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 100px;
+    height: 100px;
+    background-color: #1B3A5C;
+    color: #FFFFFF;
+    font-family: Helvetica, Arial, sans-serif;
+    font-size: 42px;
+    font-weight: bold;
+    text-decoration: none;
+    border-radius: 8px;
+    letter-spacing: -1px;
+}
+
+.monogram-thumb:hover {
+    background-color: #2E75B6;
+}
+
 .social {
     float: right;
     margin-top: -25px;
