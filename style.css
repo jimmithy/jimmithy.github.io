@@ -265,16 +265,19 @@ hr {
     display: inline-flex;
     align-items: center;
     justify-content: center;
-    width: 100px;
-    height: 100px;
+    width: 400px;
+    height: 200px;
     background-color: #1B3A5C;
     color: #FFFFFF;
     font-family: Helvetica, Arial, sans-serif;
-    font-size: 42px;
+    font-size: 96px;
     font-weight: bold;
     text-decoration: none;
-    border-radius: 8px;
-    letter-spacing: -1px;
+    letter-spacing: -2px;
+}
+
+.monogram-thumb:hover {
+    background-color: #2E75B6;
 }
 
 .monogram-thumb:hover {
